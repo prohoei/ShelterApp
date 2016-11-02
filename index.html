@@ -11,7 +11,7 @@
  </head>
  <body>	
 
-	<div id="wrapper" ng-controller= "mapController as mapCtrl">
+	<div id="wrapper" ng-controller= "mapController as mapCtrl"> <!-- mapController Controller -->
     
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -27,26 +27,32 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <header> 
-            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <div id="underlay">
+              <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
                 <span class="hamb-top"></span>
     			<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>
-            </button>
-			<h1>Shelter App! - Din vej til naturen</h1>
+              </button>
+            </div>
+			  <h1 style="display:none;">Shelter App! - Din vej til naturen</h1>
 			</header>
-
+			
+		  <div ng-controller="userController as userPosCtrl"> <!-- User Position Controller -->
 			<!-- Map Starts -->
-                <ng-map
-				  center="55.3638, 10.4024" 
+                <ng-map id="map-canvas"
+				  center="[{{position.toJSON('lat').lat}},{{position.toJSON('lng').lng}}]"
 				  zoom="12" 
-				  style="display:block; height:92vh; width: 100%; float: right;"
+				  style="display:block; height:100vh!important; width: 100%; float: right;"
+				  options="{{options}}"
+				  disableDefaultUI="true"
 				  >
-
-					<marker
+				  
+					<div marker
 						ng-repeat="n in mapLocations"
-						icon="marker.png"
+						icon="{{customIcon}}"
+						class="marker"
 						position="{{mapCtrl.getCoordinatesShelter($index)}}"
-						title="{{mapLocations[0].properties.placering}}" 
+						title="{{n.properties.placering}}" 
 						id="{{$index}}"
 						on-click="mapCtrl.showMapLocationInfo()"
 					></marker>
@@ -58,7 +64,7 @@
 					></marker>
 				 </ng-map>
 				 
-
+		  </div>
         </div><!-- /#page-content-wrapper -->
 
     </div><!-- /#wrapper -->
@@ -68,6 +74,8 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOV-3ztp2re9j3GsspZ-h6JdB-a6gO56I"></script>
  <script type="text/javascript" src="js/assets/ng-map.min.js"></script>
+ <script type="text/javascript" src="js/user/userModule.js"></script>
+ <script type="text/javascript" src="js/user/userController.js"></script>
  <script type="text/javascript" src="js/map/mapModule.js"></script>
  <script type="text/javascript" src="js/map/mapController.js"></script>
  <script type="text/javascript" src="js/custom.js"></script>

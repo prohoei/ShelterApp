@@ -16,4 +16,10 @@ $(document).ready(function () {
   $('[data-toggle="offcanvas"]').click(function () {
         $('#wrapper').toggleClass('toggled');
   });  
+});
+
+$(function() {
+    $('.marker').on('click', function(){
+        $(".navbar-toggle").trigger( "click" );
+    });
 });

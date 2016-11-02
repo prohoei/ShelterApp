@@ -1,6 +1,6 @@
 // Main module for the shelterApp, and ng-map module.
 
-var app = angular.module('shelterApp', ['ngMap']);
+var app = angular.module('shelterApp', ['ngMap', 'UserPosition']);
 
 // Map Module - pre-defined by ng-maps. 
 angular.module('ngMap').run(function($rootScope, NgMap) {
