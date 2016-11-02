@@ -15,26 +15,40 @@
     
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
+           <div class="thumbnail"></div>
             <ul class="nav">
-                <li class="sidebar-brand">Info</li>
-                <li class="extra-hight"><span>Tilbud: </span>{{mapLocations[id].properties.tilbud}}</li>
-				<li class="extra-hight"><span>Placering: </span> {{mapLocations[id].properties.placering}}</li>
-				<li class="extra-hight"><span>Beskrivelse: </span>{{mapLocations[id].properties.beskrivelse}}</li>
-				<li class="extra-hight"><span>Ejer: </span>  {{mapLocations[id].properties.ejer}}</li>
+                <li class="sidebar-brand info">Information</li>
+                <li class="extra-hight"><span class="headline">{{mapLocations[id].properties.tilbud}}</span></li>
+                <div class="box">
+                <div class="line"></div>
+                <div class="facbox">
+                <img src="img/location.svg"> <p>{{mapLocations[id].properties.placering}}</p>                  
+                </div>
+                <div class="line"></div>
+                </div>
+                <div class="description"><p>{{mapLocations[id].properties.beskrivelse}}</p>
+                    <div class="read-more"><a href="#" class="button">Læs mere</a></div>
+                </div>
+                <div class="line"></div>			
+          <div class="facbox breaker">
+                <img src="img/business.svg"> <p>{{mapLocations[id].properties.ejer}}</p>              
+                </div>
+          
             </ul>
         </div><!-- sidebar end -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <header> 
-            <div id="underlay">
-              <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <div id="underlay" class="underlay" data-toggle="offcanvas">
+            <button type="button" class="hamburger is-closed" id="hamburger">
                 <span class="hamb-top"></span>
     			<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>
-              </button>
+            </button>
+            <span class="arrow"></span>
             </div>
-			  <h1 style="display:none;">Shelter App! - Din vej til naturen</h1>
+			<h1 style="display:none;">Shelter App! - Din vej til naturen</h1>
 			</header>
 			
 		  <div ng-controller="userController as userPosCtrl"> <!-- User Position Controller -->
@@ -47,7 +61,7 @@
 				  disableDefaultUI="true"
 				  >
 				  
-					<div marker
+					<marker
 						ng-repeat="n in mapLocations"
 						icon="{{customIcon}}"
 						class="marker"

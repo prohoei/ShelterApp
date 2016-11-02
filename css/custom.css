@@ -2,6 +2,10 @@
 			Shelter App
 *********************************************/
 
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
+
+
+
 * {
   box-sizing: border-box!important;
 }
@@ -11,7 +15,8 @@
      margin: 0;
      padding:0;
      overflow: hidden;
-    
+    font-family: 'Lato', sans-serif;
+
  }
 
 html {
@@ -40,9 +45,28 @@ html {
     top:0;
      margin: 0;
      position: absolute;
+     
     
   
  }
+
+
+.thumbnail {
+    
+    width: 78%;
+    height: 100vh!important;
+    min-height: 30vh!important;
+    background: rgba(0,0,0,0.1);
+    border-radius: 7px;
+    background-image: url('https://images.unsplash.com/photo-1465919292275-c60ba49da6ae?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=b9e418643179ea35ee0b2b946793ac49');
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: -130px;
+    top:10px;
+    margin: 0;
+    margin-top: 60px!important;
+
+}
  
 .ng-scope {
     
@@ -89,6 +113,156 @@ html {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    box-shadow: -16px 0px 64px 0px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    background-size: cover;
+    background-position: -20px;
+    
+}
+
+
+.info {
+    
+    font-size: 0.8em!important;
+    text-transform: uppercase;
+    letter-spacing: 0.055em;
+    color: darkgrey;
+    margin-bottom: -25px;
+    margin-top: -20px;
+}
+
+.facbox {
+    
+    width: 100%;
+    height: 10vh;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    align-items: center;
+    margin: 0;
+   
+}
+
+
+facbox_two {
+    
+      
+    width: 100%;
+    height: 10vh;
+    background: transparent;
+    display: flex!important;
+    flex-direction: row!important;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+
+.breaker {
+    
+    margin-top: 20px;
+}
+
+.facbox_two p {
+    
+    margin: 0;
+    font-size: 0.8em;
+}
+
+.facbox p {
+    
+    margin: 0;
+    font-size: 0.8em;
+}
+
+.facbox img {
+    
+    margin-right: 7px;
+}
+
+
+
+.box {
+    
+    margin-top: 20px;
+}
+
+
+.description {
+    
+    width: 100%;
+    max-height: 170px!important;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.description p {
+    
+    letter-spacing: 0.035em;
+    font-size: 0.85em;
+    line-height: 22px;
+}
+
+.description .read-more { 
+  position: absolute; 
+  width: 100%; 
+    left: 0;
+    height: 120px;
+  text-align: center; 
+  margin: 0; padding: 30px 0; 
+  background-image: linear-gradient(to bottom, transparent, rgba(255,255,255,1));
+    bottom: 0;
+    z-index: 9999;
+    margin-top: -105px!important;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-position: 0px -10px;
+}
+
+
+.read-more a {
+    
+    margin-top:35px!important;
+    position: absolute;
+    color: forestgreen;
+    text-decoration: none;
+    z-index: 99999!important;
+    
+}
+
+a {
+    
+    z-index: 99999999!important;
+}
+
+.headline {
+    
+    font-size: 1.22em;
+    color: black;
+    letter-spacing: 0.055em;
+    line-height: 20px;
+    margin-top: -20px;
+    font-weight: 300!important;
+    
+    
+}
+
+.line {
+    
+    width: 100%;
+    height: 2px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    position: absolute;
+    left: 0;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -110,13 +284,13 @@ html {
 /* Sidebar Styles */
 
 .nav {
-    position: absolute;
-    top: 0;
-    width: 350px;
-     height: 100vh!important;
+    position: relative;
+    width: 100%;
     margin: 0;
+    margin-top: 10px;
     padding: 0;
     list-style: none;
+    padding: 30px;
 }
 
 .nav li {
@@ -213,11 +387,20 @@ html {
     z-index: 1;
     top:10px;
     box-shadow: inset 22px 4px 39px 1px rgba(255,255,255,0.05);
-    box-shadow: 12px 5px 50px rgba(0,0,0,0.2);
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+     -webkit-transition: all .15s ease-in-out;
+    animation-delay: 3s;
 }
+
+#underlay:hover .hamburger {
+    
+    animation-delay: 3s;
+}
+
 
 .hamburger {
   position: fixed;
@@ -232,13 +415,18 @@ html {
   background: transparent;
   border: none;
     border-radius: 100px;
+ -webkit-transition: all .15s ease-in-out;
+    animation-delay: 3s;
 }
+
+#underlay:hover .hamburger,
 .hamburger:hover,
 .hamburger:focus,
 .hamburger:active {
   outline: none;
     width: 26px;
     height: 26px;
+    pointer-events: none;
 }
 .hamburger.is-closed:before {
   content: '';
@@ -251,12 +439,72 @@ html {
   opacity: 0;
   -webkit-transform: translate3d(0,0,0);
   -webkit-transition: all .35s ease-in-out;
+    animation-delay: 3s;
 }
-.hamburger.is-closed:hover:before {
+#underlay:hover .hamburger, .hamburger.is-closed:hover:before {
   opacity: 1;
   display: block;
   -webkit-transform: translate3d(-100px,0,0);
   -webkit-transition: all .35s ease-in-out;
+    animation-delay: 3s;
+}
+
+
+.arrow {
+    
+     -webkit-transition: all .15s ease-in-out;
+    width: 50px;
+    height: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    pointer-events: fill;
+    
+}
+
+
+
+
+#underlay:hover .arrow {
+    
+    display: block!important;
+    background-image: url('../img/arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    width: 50px;
+    top: 17px;
+    left: 16px;
+    height: 50px;
+    position: absolute;
+    z-index: 9999;
+    animation: slideIn 0.2s ease-in-out;
+    animation: fadeOut 0.3s ease-in-out;
+    
+}
+
+@keyframes fadeOut {
+    
+    100% {
+        
+        opacity: 1;
+    }
+    
+    0% {
+        
+        opacity: 0;
+    }
+}
+
+
+@keyframes slideIn {
+    
+    0% {
+       transform:  translateX(-30%);
+         
+    }
+  
+    100% {
+         transform:  translateX(0%);
+      
+    }
 }
 
 .hamburger.is-closed .hamb-top,
@@ -267,6 +515,9 @@ html {
   height: 2px;
   width: 100%;
 }
+
+
+
 .hamburger.is-closed .hamb-top,
 .hamburger.is-closed .hamb-middle,
 .hamburger.is-closed .hamb-bottom {
@@ -285,13 +536,22 @@ html {
   -webkit-transition: all .35s ease-in-out;
 }
 
-.hamburger.is-closed:hover .hamb-top {
+#underlay:hover .hamburger, .hamburger.is-closed:hover .hamb-top {
   top: -5;
     width: 20px;
   -webkit-transition: all .35s ease-in-out;
 }
-.hamburger.is-closed:hover .hamb-bottom {
+#underlay:hover .hamburger, .hamburger.is-closed:hover .hamb-bottom {
   bottom: 5px;
     width: 28px;
   -webkit-transition: all .35s ease-in-out;
+}
+
+
+
+/* ANIMATION */
+
+.hamburgerClick {
+    
+    border: 50px solid black;
 }
