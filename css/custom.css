@@ -10,6 +10,15 @@
     overflow-x: hidden;
  }
  
+ header{
+	height: 8vh;
+ }
+ 
+ header h1{
+	padding-left: 100px;
+	margin-top: 15px!important;
+ }
+ 
 /* Toggle Styles */
 
 #wrapper {
@@ -55,7 +64,7 @@
 
 /* Sidebar Styles */
 
-.sidebar-nav {
+.nav {
     position: absolute;
     top: 0;
     width: 350px;
@@ -64,45 +73,43 @@
     list-style: none;
 }
 
-.sidebar-nav li {
-    text-indent: 20px;
+.nav li {
 	color: #000;
-	padding: 0 15px!important;
+	padding: 0 10px!important;
 }
 
-.sidebar-nav li span{
+.nav li span{
     font-weight: bold;
 }
 
-.sidebar-nav .extra-hight{
+.nav .extra-hight{
     padding-top: 10px!important;
 	padding-bottom: 10px!important;
 }
 
-.sidebar-nav li a {
+.nav li a {
     display: block;
     text-decoration: none;
     color: #000;
 }
 
-.sidebar-nav li a:hover {
+.nav li a:hover {
     text-decoration: none;
     color: #333;
     background: rgba(255,255,255,0.2);
 }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
+.nav li a:active,
+.nav li a:focus {
     text-decoration: none;
 }
 
-.sidebar-nav > .sidebar-brand {
-    height: 120px;
+.nav > .sidebar-brand {
     font-size: 32px;
     line-height: 60px;
 }
 
-.sidebar-nav > .sidebar-brand a:hover {
+.nav > .sidebar-brand a:hover {
     color: #333;
     background: none;
 }

@@ -1,3 +1,4 @@
+// Toggle sidebar nav
 $(document).ready(function () {
   var trigger = $('.hamburger')
      isClosed = false;
